@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, ClipboardCheck, Sparkles, FileText, ShieldAlert,
   Map, Network, FolderArchive, FileBarChart, Settings, type LucideIcon,
@@ -64,9 +64,9 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         <div className="rounded-md bg-navy p-4 text-cream">
           <p className="text-sm font-semibold">Free plan</p>
           <p className="mt-1 text-xs text-white/80">Upgrade for AI policy generation and unlimited assessments.</p>
-          <Link to="/pricing" className="mt-3 block w-full rounded-sm bg-cream/15 px-3 py-1.5 text-center text-xs font-semibold text-cream hover:bg-cream/25 transition">
+          <a href="https://ohkariku-boop.github.io/grcarc/pricing" className="mt-3 block w-full rounded-sm bg-cream/15 px-3 py-1.5 text-center text-xs font-semibold text-cream hover:bg-cream/25 transition">
             Explore plans
-          </Link>
+          </a>
         </div>
       </div>
     </div>

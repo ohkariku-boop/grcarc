@@ -21,7 +21,7 @@ export function HomePage() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Logo />
           <nav className="hidden items-center gap-8 md:flex">
-            <Link to="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">Pricing</Link>
+            <a href="https://ohkariku-boop.github.io/grcarc/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">Pricing</a>
             <a href="#modules" className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">Modules</a>
             <a href="#how" className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition">How it works</a>
           </nav>
