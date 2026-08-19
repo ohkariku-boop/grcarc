@@ -140,17 +140,17 @@ export function HomePage() {
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: BarChart3, name: 'Dashboard', desc: 'Executive overview of score, risks and readiness.' },
-              { icon: ShieldCheck, name: 'Governance Assessment', desc: 'Score maturity across six domains in minutes.' },
-              { icon: Sparkles, name: 'AI Governance Copilot', desc: 'Conversational guidance and policy generation.' },
-              { icon: FileText, name: 'AI Policy Generator', desc: 'Generate, edit and export governance documents.' },
-              { icon: ShieldAlert, name: 'Risk Register', desc: 'Identify, score and mitigate your risks.' },
-              { icon: TrendingUp, name: 'Governance Roadmap', desc: 'A phased path to your target maturity.' },
-              { icon: Network, name: 'Compliance Mapping', desc: 'Coverage across seven major frameworks.' },
-              { icon: Lock, name: 'Evidence Library', desc: 'A searchable home for all your proof.' },
-              { icon: FileText, name: 'Reports', desc: 'Board-ready reports in a click.' },
+              { icon: BarChart3, name: 'Dashboard', desc: 'Executive overview of score, risks and readiness.', to: '/app' },
+              { icon: ShieldCheck, name: 'Governance Assessment', desc: 'Score maturity across six domains in minutes.', to: '/app/assessment' },
+              { icon: Sparkles, name: 'AI Governance Copilot', desc: 'Conversational guidance and policy generation.', to: '/app/copilot' },
+              { icon: FileText, name: 'AI Policy Generator', desc: 'Generate, edit and export governance documents.', to: '/app/policies' },
+              { icon: ShieldAlert, name: 'Risk Register', desc: 'Identify, score and mitigate your risks.', to: '/app/risk' },
+              { icon: TrendingUp, name: 'Governance Roadmap', desc: 'A phased path to your target maturity.', to: '/app/roadmap' },
+              { icon: Network, name: 'Compliance Mapping', desc: 'Coverage across seven major frameworks.', to: '/app/compliance' },
+              { icon: Lock, name: 'Evidence Library', desc: 'A searchable home for all your proof.', to: '/app/evidence' },
+              { icon: FileText, name: 'Reports', desc: 'Board-ready reports in a click.', to: '/app/reports' },
             ].map(m => (
-              <div key={m.name} className="flex items-start gap-4 rounded-2xl border border-app surface p-5 hover:border-primary-300 dark:hover:border-primary-700 transition">
+              <Link key={m.name} to={m.to} className="flex items-start gap-4 rounded-2xl border border-app surface p-5 hover:border-primary-300 dark:hover:border-primary-700 transition cursor-pointer">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-paper text-navy dark:bg-[#16223d] dark:text-cream">
                   <m.icon className="h-5 w-5" />
                 </div>
@@ -158,7 +158,7 @@ export function HomePage() {
                   <h3 className="font-semibold text-slate-900 dark:text-white">{m.name}</h3>
                   <p className="mt-1 text-sm text-muted">{m.desc}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
