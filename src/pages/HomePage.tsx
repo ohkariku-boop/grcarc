@@ -239,7 +239,6 @@ export function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <Logo />
-            <p className="text-sm text-muted">AI Governance Copilot for growing businesses.</p>
             <div className="flex items-center gap-6 text-sm text-muted">
               <a href="#features" className="hover:text-slate-900 dark:hover:text-white transition">Platform</a>
               <a href="#modules" className="hover:text-slate-900 dark:hover:text-white transition">Modules</a>
