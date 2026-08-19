@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,12 @@
 
 @layer base {
   :root {
-    --bg: 250 247 240;          /* cream */
-    --surface: 245 239 228;     /* paper */
+    --bg: 245 246 244;          /* cool paper-grey */
+    --surface: 239 240 237;     /* card surface */
     --elev: 255 255 255;
-    --border: 230 221 202;      /* line */
-    --text: 27 42 74;           /* navy */
-    --muted: 106 121 147;       /* ink */
+    --border: 218 223 217;      /* hairline */
+    --text: 27 31 29;           /* near-black ink — body copy */
+    --muted: 107 114 108;       /* muted grey — secondary text */
   }
   .dark {
     --bg: 14 20 36;
@@ -29,7 +29,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.5;
   }
-  ::selection { background: rgba(196,57,46,0.18); color: rgb(var(--text)); }
+  ::selection { background: rgba(30,58,95,0.16); color: rgb(var(--text)); }
 
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -53,7 +53,7 @@
   }
 
   .glass {
-    background: rgba(250,247,240,0.92);
+    background: rgba(245,246,244,0.92);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -80,15 +80,30 @@
     @apply font-mono text-[11px] uppercase tracking-wider text-ink;
   }
 
+  /* Ink-stamp status badges — the signature element. Literal stamp metaphor for
+     a governance/certification product: slightly rotated, imperfect border,
+     faint bleed texture, uppercase mono type like a notary mark. */
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+    @apply relative inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider font-mono;
+    border-radius: 3px;
+    border: 1.5px solid currentColor;
+    transform: rotate(-1.5deg);
+    background: transparent;
   }
-  .badge-success { @apply badge bg-success-100 text-success-700 dark:bg-success-900/40 dark:text-success-300; }
-  .badge-warning { @apply badge bg-warning-100 text-warning-700 dark:bg-warning-900/40 dark:text-warning-300; }
-  .badge-error { @apply badge bg-error-100 text-error-700 dark:bg-error-900/40 dark:text-error-300; }
-  .badge-info { @apply badge; background-color: rgb(27 42 74 / 0.1); color: #1b2a4a; }
-  .dark .badge-info { background-color: rgb(27 42 74 / 0.3); color: #d9dfee; }
-  .badge-neutral { @apply badge bg-paper text-ink dark:bg-[#16223d] dark:text-cream; }
+  .badge::before {
+    content: '';
+    position: absolute; inset: -1px;
+    border-radius: 3px;
+    background: radial-gradient(ellipse at 30% 30%, currentColor 0%, transparent 70%);
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .badge-success { @apply badge text-success-700 dark:text-success-400; transform: rotate(-1.5deg); }
+  .badge-warning { @apply badge text-warning-700 dark:text-warning-400; transform: rotate(1deg); }
+  .badge-error { @apply badge text-error-700 dark:text-error-400; transform: rotate(-1deg); }
+  .badge-info { @apply badge; color: #1e3a5f; transform: rotate(1.5deg); }
+  .dark .badge-info { color: #a8c0dd; }
+  .badge-neutral { @apply badge; color: #6b726c; transform: rotate(-0.5deg); }
 
   .skeleton { @apply relative overflow-hidden rounded-md; background-color: rgb(var(--muted) / 0.15); }
   .skeleton::after {

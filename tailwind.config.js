@@ -42,21 +42,21 @@ module.exports = {
           400: '#f87171', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c',
           800: '#991b1b', 900: '#7f1d1d', 950: '#450a0a',
         },
-        // original GRCArc editorial tokens (single-value, used by name)
-        cream: '#faf7f0',
-        paper: '#f5efe4',
-        line: '#e6ddca',
-        navy: '#1b2a4a',
-        red: '#c4392e',
-        ink: '#6a7993', // navy-soft
+        // GRCArc editorial tokens v2 — paper-grey Swiss minimalist system
+        cream: '#f5f6f4',   // cool paper-grey (was warm cream)
+        paper: '#eff0ed',   // card surface, subtle step off bg
+        line: '#dadfd9',    // hairline border
+        navy: '#1e3a5f',    // sole accent — official/stamp navy
+        red: '#a8503e',     // muted brick, secondary emphasis only
+        ink: '#6b726c',     // muted label grey
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        grotesk: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        grotesk: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
-        sm: '2px', md: '6px', lg: '8px', xl: '10px', '2xl': '12px', '3xl': '14px',
+        sm: '2px', md: '3px', lg: '4px', xl: '4px', '2xl': '4px', '3xl': '4px',
       },
       boxShadow: {
         soft: '0 1px 2px rgba(27,42,74,0.04)',
