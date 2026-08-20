@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {
   LayoutDashboard, ClipboardCheck, Sparkles, FileText, ShieldAlert,
   Map, Network, FolderArchive, FileBarChart, Settings, type LucideIcon,
@@ -30,7 +30,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <div className="flex h-full flex-col">
       <div className="flex h-16 items-center px-5 border-b border-app">
-        <Logo />
+        <Link to="/"><Logo /></Link>
       </div>
       <nav className="flex-1 overflow-y-auto px-3 py-4 no-scrollbar">
         <p className="px-3 pb-2 mono-label">Platform</p>
