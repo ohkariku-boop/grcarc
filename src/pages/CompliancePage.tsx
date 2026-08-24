@@ -8,6 +8,7 @@ import { Card, CardBody, CardHeader } from '@/components/ui/Card';
 import { Badge, ProgressBar } from '@/components/ui/Badge';
 import { PageHeader } from '@/components/ui/Feedback';
 import { sampleFrameworks } from '@/data/sampleData';
+import { generateRealControls } from '@/data/trmControls';
 import type { Framework } from '@/types';
 import { cn } from '@/utils/cn';
 
@@ -26,7 +27,7 @@ export function CompliancePage() {
       <PageHeader
         title="Compliance Mapping"
         description="See your coverage against major governance and security frameworks."
-        action={<button className="btn-primary"><Sparkles className="h-4 w-4" /> AI Gap Analysis</button>}
+        action={<button className="btn-primary" disabled title="Coming soon"><Sparkles className="h-4 w-4" /> AI Gap Analysis</button>}
       />
 
       {/* Overall coverage */}
@@ -183,15 +184,5 @@ export function CompliancePage() {
 }
 
 function generateControls(f: Framework) {
-  const base = [
-    { id: 'A.1', name: 'Governance & Leadership', description: 'Defined ownership and direction for the programme.', status: f.coverage >= 60 ? 'met' : 'partial' as const },
-    { id: 'A.2', name: 'Risk Assessment', description: 'Identify and assess risks to objectives.', status: f.coverage >= 55 ? 'met' : 'partial' as const },
-    { id: 'A.3', name: 'Access Control', description: 'Identity, authentication and authorisation.', status: f.coverage >= 65 ? 'met' : 'partial' as const },
-    { id: 'A.4', name: 'Asset Management', description: 'Inventory and classification of assets.', status: f.coverage >= 50 ? 'met' : 'missing' as const },
-    { id: 'A.5', name: 'Incident Management', description: 'Detect, respond to and learn from incidents.', status: f.coverage >= 58 ? 'met' : 'missing' as const },
-    { id: 'A.6', name: 'Business Continuity', description: 'Resilience and recovery capabilities.', status: f.coverage >= 52 ? 'partial' : 'missing' as const },
-    { id: 'A.7', name: 'Supplier Relationships', description: 'Third-party risk management.', status: f.coverage >= 48 ? 'partial' : 'missing' as const },
-    { id: 'A.8', name: 'Awareness & Training', description: 'Ongoing staff security awareness.', status: f.coverage >= 56 ? 'met' : 'partial' as const },
-  ];
-  return base;
+  return generateRealControls(f.id, f.coverage);
 }
