@@ -57,8 +57,8 @@ export function RiskPage() {
         description="Identify, score and mitigate your governance and security risks."
         action={
           <>
-            <button className="btn-secondary"><Sparkles className="h-4 w-4" /> AI Generate Risks</button>
-            <button className="btn-primary"><Plus className="h-4 w-4" /> Add Risk</button>
+            <button className="btn-secondary" disabled title="Coming soon"><Sparkles className="h-4 w-4" /> AI Generate Risks</button>
+            <button className="btn-primary" disabled title="Coming soon — accounts aren't built for GRCArc yet"><Plus className="h-4 w-4" /> Add Risk</button>
           </>
         }
       />
@@ -227,7 +227,7 @@ function RiskDetail({ risk, onBack }: { risk: Risk; onBack: () => void }) {
         description={risk.description}
         action={<>
           <button onClick={onBack} className="btn-secondary">Back</button>
-          <button className="btn-primary">Update</button>
+          <button className="btn-primary" disabled title="Coming soon">Update</button>
         </>}
       />
       <div className="grid gap-6 lg:grid-cols-3">

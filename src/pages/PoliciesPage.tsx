@@ -10,6 +10,7 @@ import { PageHeader, EmptyState, ComingSoon } from '@/components/ui/Feedback';
 import { samplePolicies } from '@/data/sampleData';
 import type { PolicyDoc } from '@/types';
 import { cn, formatDate } from '@/utils/cn';
+import { exportGovernancePdf } from '@/utils/exportPdf';
 
 const policyTemplates: { title: string; type: string; icon: LucideIcon; desc: string }[] = [
   { title: 'Information Security Policy', type: 'Security', icon: FileText, desc: 'Core security responsibilities and controls.' },
@@ -53,7 +54,7 @@ export function PoliciesPage() {
         description="Generate, edit and export governance documentation."
         action={
           <>
-            <button className="btn-secondary"><History className="h-4 w-4" /> Version history</button>
+            <button className="btn-secondary" disabled title="Coming soon"><History className="h-4 w-4" /> Version history</button>
             <button onClick={() => setShowGenerator(true)} className="btn-primary"><Sparkles className="h-4 w-4" /> Generate Policy</button>
           </>
         }
@@ -138,7 +139,7 @@ export function PoliciesPage() {
                 <p className="truncate text-sm font-medium text-slate-800 dark:text-slate-100">{t.title}</p>
                 <p className="truncate text-xs text-muted">{t.desc}</p>
               </div>
-              <button className="btn-ghost !p-1.5" aria-label={`Generate ${t.title}`}><Sparkles className="h-4 w-4 text-primary-500" /></button>
+              <button className="btn-ghost !p-1.5" disabled title="Coming soon — accounts aren't built for GRCArc yet" aria-label={`Generate ${t.title}`}><Sparkles className="h-4 w-4 text-primary-500" /></button>
             </div>
           ))}
         </div>
@@ -156,10 +157,11 @@ export function PoliciesPage() {
             <p className="mt-2 text-sm text-muted">Choose a template and the AI Copilot will draft a full policy based on your governance context. Editing and export open automatically.</p>
             <div className="mt-4 max-h-72 space-y-2 overflow-y-auto">
               {policyTemplates.map(t => (
-                <button key={t.title} onClick={() => { setShowGenerator(false); }} className="flex w-full items-center gap-3 rounded-xl border border-app p-3 text-left hover:border-primary-300 transition">
+                <div key={t.title} className="flex w-full items-center gap-3 rounded-xl border border-app p-3 text-left opacity-60">
                   <t.icon className="h-4 w-4 text-primary-500" />
                   <span className="text-sm font-medium text-slate-800 dark:text-slate-100">{t.title}</span>
-                </button>
+                  <span className="ml-auto text-xs text-muted">Coming soon</span>
+                </div>
               ))}
             </div>
             <button onClick={() => setShowGenerator(false)} className="btn-secondary mt-4 w-full">Close</button>
@@ -179,8 +181,21 @@ function PolicyEditor({ policy, onBack }: { policy: PolicyDoc; onBack: () => voi
         action={
           <>
             <button onClick={onBack} className="btn-secondary">Back</button>
-            <button className="btn-secondary"><FileDown className="h-4 w-4" /> Export Word</button>
-            <button className="btn-primary"><FileDown className="h-4 w-4" /> Export PDF</button>
+            <button className="btn-secondary" disabled title="Coming soon"><FileDown className="h-4 w-4" /> Export Word</button>
+            <button onClick={() => exportGovernancePdf({
+              title: `${policy.title} — GRCArc`,
+              subtitle: `Version ${policy.version} · ${policy.owner} · ${formatDate(policy.updatedAt)}`,
+              overall: 0,
+              levelLabel: policy.status,
+              perCategory: [],
+              bodyLines: [
+                '1. Purpose', policy.summary, '',
+                '2. Scope', 'This policy applies to all employees, contractors and third parties who access company systems or data.', '',
+                '3. Responsibilities', 'Leadership approves and reviews this policy annually. IT implements and monitors technical controls. All staff comply with the requirements below.', '',
+                '4. Requirements', 'Detailed control requirements are defined in the supporting procedures. Edit this section to tailor it to your organisation.', '',
+                '5. Review', 'This policy is reviewed at least annually or following a significant incident.',
+              ],
+            })} className="btn-primary"><FileDown className="h-4 w-4" /> Export PDF</button>
           </>
         }
       />
