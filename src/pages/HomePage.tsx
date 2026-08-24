@@ -201,11 +201,11 @@ export function HomePage() {
             </div>
             <div className="mt-6 space-y-3">
               {[
-                { name: 'Strategy & Leadership', v: 65, c: '#1b2a4a' },
+                { name: 'Strategy & Leadership', v: 65, c: '#1e3a5f' },
                 { name: 'Information Security', v: 72, c: '#22c55e' },
                 { name: 'Risk Management', v: 48, c: '#f59e0b' },
                 { name: 'Asset & Data Management', v: 41, c: '#c4392e' },
-                { name: 'People & Awareness', v: 58, c: '#6a7993' },
+                { name: 'People & Awareness', v: 58, c: '#6b726c' },
               ].map(r => (
                 <div key={r.name}>
                   <div className="flex justify-between text-xs"><span className="text-navy dark:text-cream">{r.name}</span><span className="font-semibold text-navy dark:text-cream">{r.v}%</span></div>

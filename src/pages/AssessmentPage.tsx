@@ -245,8 +245,8 @@ function Results({ state, scores, band, count, pct, recs, milestone, onReview, o
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={radarData} outerRadius="72%">
                   <PolarGrid stroke="rgba(106,121,147,0.25)" />
-                  <PolarAngleAxis dataKey="name" tick={{ fontSize: 11, fill: '#6a7993' }} />
-                  <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 10, fill: '#6a7993' }} axisLine={false} />
+                  <PolarAngleAxis dataKey="name" tick={{ fontSize: 11, fill: '#6b726c' }} />
+                  <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 10, fill: '#6b726c' }} axisLine={false} />
                   <Radar dataKey="score" stroke="#c4392e" fill="#c4392e" fillOpacity={0.3} strokeWidth={2} />
                 </RadarChart>
               </ResponsiveContainer>
@@ -259,9 +259,9 @@ function Results({ state, scores, band, count, pct, recs, milestone, onReview, o
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={barData} layout="vertical" margin={{ left: 20, right: 20 }}>
-                  <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: '#6a7993' }} axisLine={false} tickLine={false} />
-                  <YAxis type="category" dataKey="name" width={110} tick={{ fontSize: 10, fill: '#6a7993' }} axisLine={false} tickLine={false} />
-                  <Tooltip contentStyle={{ borderRadius: 6, border: '1px solid #e6ddca', fontSize: 13 }} />
+                  <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: '#6b726c' }} axisLine={false} tickLine={false} />
+                  <YAxis type="category" dataKey="name" width={110} tick={{ fontSize: 10, fill: '#6b726c' }} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={{ borderRadius: 6, border: '1px solid #dadfd9', fontSize: 13 }} />
                   <Bar dataKey="pct" radius={[0, 4, 4, 0]}>
                     {barData.map((entry, i) => <Cell key={i} fill={scoreColor(entry.pct)} />)}
                   </Bar>
@@ -279,9 +279,9 @@ function Results({ state, scores, band, count, pct, recs, milestone, onReview, o
           <div className="grid gap-4 sm:grid-cols-4">
             {[
               { label: 'Your score', value: pct, color: '#c4392e' },
-              { label: 'SMB average', value: 42, color: '#6a7993' },
+              { label: 'SMB average', value: 42, color: '#6b726c' },
               { label: 'Industry leaders', value: 82, color: '#22c55e' },
-              { label: 'Certification ready', value: 75, color: '#1b2a4a' },
+              { label: 'Certification ready', value: 75, color: '#1e3a5f' },
             ].map(b => (
               <div key={b.label} className="rounded-md border border-app p-4 text-center">
                 <p className="text-3xl font-bold" style={{ color: b.color }}>{b.value}%</p>

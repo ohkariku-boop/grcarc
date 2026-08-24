@@ -75,15 +75,15 @@ export function DashboardPage() {
                 <AreaChart data={s.trend} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#1b2a4a" stopOpacity={0.3} />
-                      <stop offset="100%" stopColor="#1b2a4a" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#1e3a5f" stopOpacity={0.3} />
+                      <stop offset="100%" stopColor="#1e3a5f" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(106,121,147,0.18)" />
-                  <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#6a7993' }} axisLine={false} tickLine={false} />
-                  <YAxis domain={[0, 100]} tick={{ fontSize: 12, fill: '#6a7993' }} axisLine={false} tickLine={false} />
-                  <Tooltip contentStyle={{ borderRadius: 6, border: '1px solid #e6ddca', fontSize: 13 }} />
-                  <Area type="monotone" dataKey="score" stroke="#1b2a4a" strokeWidth={2.5} fill="url(#scoreGrad)" />
+                  <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#6b726c' }} axisLine={false} tickLine={false} />
+                  <YAxis domain={[0, 100]} tick={{ fontSize: 12, fill: '#6b726c' }} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={{ borderRadius: 6, border: '1px solid #dadfd9', fontSize: 13 }} />
+                  <Area type="monotone" dataKey="score" stroke="#1e3a5f" strokeWidth={2.5} fill="url(#scoreGrad)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -100,9 +100,9 @@ export function DashboardPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={s.categoryScores} outerRadius="72%">
                   <PolarGrid stroke="rgba(106,121,147,0.25)" />
-                  <PolarAngleAxis dataKey="name" tick={{ fontSize: 11, fill: '#6a7993' }} />
-                  <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 10, fill: '#6a7993' }} axisLine={false} />
-                  <Radar dataKey="score" stroke="#1b2a4a" fill="#1b2a4a" fillOpacity={0.3} strokeWidth={2} />
+                  <PolarAngleAxis dataKey="name" tick={{ fontSize: 11, fill: '#6b726c' }} />
+                  <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 10, fill: '#6b726c' }} axisLine={false} />
+                  <Radar dataKey="score" stroke="#1e3a5f" fill="#1e3a5f" fillOpacity={0.3} strokeWidth={2} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
