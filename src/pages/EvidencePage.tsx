@@ -34,7 +34,7 @@ export function EvidencePage() {
       <PageHeader
         title="Evidence Library"
         description="A searchable repository for policies, contracts, audits and certificates."
-        action={<button className="btn-primary"><Upload className="h-4 w-4" /> Upload Evidence</button>}
+        action={<button className="btn-primary" disabled title="Coming soon — accounts aren't built for GRCArc yet"><Upload className="h-4 w-4" /> Upload Evidence</button>}
       />
 
       {/* Summary */}
@@ -68,13 +68,13 @@ export function EvidencePage() {
       </div>
 
       {/* Upload dropzone */}
-      <Card className="mb-6 border-dashed">
+      <Card className="mb-6 border-dashed opacity-70">
         <CardBody className="flex flex-col items-center justify-center py-8 text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-primary-500 dark:bg-primary-900/30 dark:text-primary-300">
             <Upload className="h-6 w-6" />
           </div>
-          <p className="mt-3 text-sm font-medium text-slate-800 dark:text-slate-100">Drag and drop files here, or click to browse</p>
-          <p className="mt-1 text-xs text-muted">PDF, PNG, JPG, DOCX up to 25 MB. AI categorises them automatically.</p>
+          <p className="mt-3 text-sm font-medium text-slate-800 dark:text-slate-100">Evidence upload — coming soon</p>
+          <p className="mt-1 text-xs text-muted">Accounts and file storage aren't built for GRCArc yet. Browse the sample library below.</p>
         </CardBody>
       </Card>
 
@@ -114,7 +114,7 @@ export function EvidencePage() {
       <Card className="mt-6">
         <CardBody className="flex items-center gap-3">
           <Sparkles className="h-5 w-5 text-primary-500 shrink-0" />
-          <p className="text-sm text-muted">AI auto-categorisation and tagging will be applied to new uploads. Existing items can be re-tagged in bulk soon.</p>
+          <p className="text-sm text-muted">File upload and AI auto-categorisation are on the roadmap. This is a sample library for now.</p>
         </CardBody>
       </Card>
 
@@ -135,12 +135,8 @@ export function EvidencePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex items-center justify-between rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4">
-              <p className="text-sm text-muted">Preview not available for this file type in the demo.</p>
-              <div className="flex gap-2">
-                <button className="btn-secondary !py-2"><Eye className="h-4 w-4" /> Preview</button>
-                <button className="btn-primary !py-2"><Download className="h-4 w-4" /> Download</button>
-              </div>
+            <div className="mt-5 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4">
+              <p className="text-sm text-muted">Sample entry — no real file exists behind this in the demo.</p>
             </div>
             <button onClick={() => setSelected(null)} className="btn-secondary mt-4 w-full">Close</button>
           </Card>

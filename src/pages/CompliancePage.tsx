@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Network, Search, CheckCircle2, XCircle, AlertTriangle,
@@ -13,6 +14,7 @@ import type { Framework } from '@/types';
 import { cn } from '@/utils/cn';
 
 export function CompliancePage() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<Framework | null>(sampleFrameworks[1]);
   const [compare, setCompare] = useState<string[]>(['iso27001', 'soc2']);
@@ -123,7 +125,7 @@ export function CompliancePage() {
                   <div key={c.id} className="flex items-center gap-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 p-3">
                     <Sparkles className="h-4 w-4 text-primary-500 shrink-0" />
                     <p className="flex-1 text-sm text-slate-700 dark:text-slate-200">Implement <span className="font-medium">{c.name}</span> to progress toward {selected.shortName} compliance.</p>
-                    <button className="text-xs font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400">Start <ArrowRight className="inline h-3 w-3" /></button>
+                    <button onClick={() => navigate('/app/policies')} className="text-xs font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400">Start <ArrowRight className="inline h-3 w-3" /></button>
                   </div>
                 ))}
               </CardBody>

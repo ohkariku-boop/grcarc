@@ -38,7 +38,7 @@ export function ReportsPage() {
       <PageHeader
         title="Reports"
         description="Generate and export board-ready governance reports."
-        action={<button className="btn-primary"><Sparkles className="h-4 w-4" /> AI Generate Report</button>}
+        action={<button className="btn-primary" disabled title="Coming soon"><Sparkles className="h-4 w-4" /> AI Generate Report</button>}
       />
 
       {/* Report cards */}
@@ -55,8 +55,8 @@ export function ReportsPage() {
             <p className="mt-1 flex-1 text-sm text-muted">{r.desc}</p>
             <div className="mt-4 flex items-center gap-2">
               <button onClick={() => handleExport(r.title)} className="btn-secondary !py-2 flex-1"><FileDown className="h-4 w-4" /> PDF</button>
-              <button className="btn-secondary !py-2 flex-1"><Presentation className="h-4 w-4" /> PPT</button>
-              <button className="btn-secondary !py-2 flex-1"><FileText className="h-4 w-4" /> Word</button>
+              <button className="btn-secondary !py-2 flex-1" disabled title="Coming soon"><Presentation className="h-4 w-4" /> PPT</button>
+              <button className="btn-secondary !py-2 flex-1" disabled title="Coming soon"><FileText className="h-4 w-4" /> Word</button>
             </div>
           </Card>
         ))}
